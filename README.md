@@ -1,4 +1,4 @@
 Roll-the-Ball
 =============
 
-Simple platforming game created within the Unity3D engine using C#
+Platforming game created within the Unity3D engine using C#

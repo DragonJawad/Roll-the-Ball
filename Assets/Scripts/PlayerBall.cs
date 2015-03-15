@@ -173,9 +173,9 @@ public class PlayerBall : MonoBehaviour {
 		
 		//Check for death
 		if (transform.position.y <= -1 || Input.GetKey("t")) {
-			renderer.enabled = false;
-			rigidbody.useGravity = false;
-			rigidbody.velocity = Vector3.zero;
+			GetComponent<Renderer>().enabled = false;
+			GetComponent<Rigidbody>().useGravity = false;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			StartCoroutine(DieDelay(1));
 			deathRoutineActivate = true;
 		}
@@ -193,13 +193,13 @@ public class PlayerBall : MonoBehaviour {
 			}
 			if(Time.time < collisionChangeTimer)
 			{
-				rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+				GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
 			}
 			else{
 				// Reset settings for future use
 				collisionCheckChange = false;	// Reset so it doesn't run again
 				activateCollisionTimer = true;  // Reset for future use
-				rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
+				GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Discrete;
 			}
 		}
 
@@ -210,7 +210,7 @@ public class PlayerBall : MonoBehaviour {
 
 		if(controlCheck) // If you can control the ball still
 		{	
-			rigidbody.drag = 0.45f;
+			GetComponent<Rigidbody>().drag = 0.45f;
 				
 			#if UNITY_EDITOR
 				keyInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -223,8 +223,8 @@ public class PlayerBall : MonoBehaviour {
 		}
 		else {	// Make sure the ball can't move
 	//		moveInput = Vector3.zero;
-			rigidbody.velocity = Vector3.zero;
-			rigidbody.useGravity = false;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+			GetComponent<Rigidbody>().useGravity = false;
 		}
 	} // end of Update()
 
@@ -631,14 +631,14 @@ public class PlayerBall : MonoBehaviour {
 	// Actually move the ball
 	public void MoveBall(Vector3 moveAmount){
 		if(moveAmount == Vector3.zero) return;
-		rigidbody.AddForce(moveAmount*speed*speedMultiplier*Time.deltaTime);
+		GetComponent<Rigidbody>().AddForce(moveAmount*speed*speedMultiplier*Time.deltaTime);
 	}
 	
 	// Do jumping action
 	public void Jump(){
 		if(isGrounded()){
-			rigidbody.velocity = new Vector3(rigidbody.velocity.x,jumpSpeed,
-		                                 rigidbody.velocity.z);
+			GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x,jumpSpeed,
+		                                 GetComponent<Rigidbody>().velocity.z);
 		}
 	}
 	
@@ -689,13 +689,13 @@ public class PlayerBall : MonoBehaviour {
 	}
 
 	public void PerfectBounce(){
-		rigidbody.velocity = new Vector3(rigidbody.velocity.x,-rigidbody.velocity.y*1.6f,
-		                                 rigidbody.velocity.z);
+		GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x,-GetComponent<Rigidbody>().velocity.y*1.6f,
+		                                 GetComponent<Rigidbody>().velocity.z);
 	}
 
 	public void PerfectBounceWall(){
-		rigidbody.velocity = new Vector3(-rigidbody.velocity.x,rigidbody.velocity.y,
-		                                 -rigidbody.velocity.z);
+		GetComponent<Rigidbody>().velocity = new Vector3(-GetComponent<Rigidbody>().velocity.x,GetComponent<Rigidbody>().velocity.y,
+		                                 -GetComponent<Rigidbody>().velocity.z);
 	}
 
 	public void StartRoutine(){ // Set the starting bools and such to the correct values to start the game
@@ -704,7 +704,7 @@ public class PlayerBall : MonoBehaviour {
 		OpeningToggle(false);				// Turn off the opening message screen
 		controlCheck = true;				// Allow the player and such to be moved
 		GUIToggle(true);
-		rigidbody.useGravity = true;
+		GetComponent<Rigidbody>().useGravity = true;
 		
 		// Save that the default controls have changed
 		if(saveControlChange){

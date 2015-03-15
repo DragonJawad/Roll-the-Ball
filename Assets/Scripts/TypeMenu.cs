@@ -270,7 +270,7 @@ public class TypeMenu : MonoBehaviour {
 
 	void OnMouseEnter(){
 		if(thisMenu == MenuType.LevelSelect)
-			renderer.material.color = Color.black;
+			GetComponent<Renderer>().material.color = Color.black;
 		else if(thisMenu == MenuType.WorldSelect){
 			Color color;
 			color = textName.color;
@@ -287,15 +287,15 @@ public class TypeMenu : MonoBehaviour {
 		}
 		else{
 			Color color;
-			color = renderer.material.color;
+			color = GetComponent<Renderer>().material.color;
 			color.a = 0.2f;
-			renderer.material.color = color;
+			GetComponent<Renderer>().material.color = color;
 		}
 	}
 	
 	void OnMouseExit(){
 		if(thisMenu == MenuType.LevelSelect)
-			renderer.material.color = Color.blue;
+			GetComponent<Renderer>().material.color = Color.blue;
 		else if(thisMenu == MenuType.WorldSelect){
 			Color color;
 			color = textName.color;
@@ -305,17 +305,17 @@ public class TypeMenu : MonoBehaviour {
 		else if(thisMenu == MenuType.GUIWindow){
 			if(specialMode == -1){
 				Color color;
-				color = renderer.material.color;
+				color = GetComponent<Renderer>().material.color;
 				color = Color.white;
-				renderer.material.color = color;
+				GetComponent<Renderer>().material.color = color;
 			}
 		}
 		else{
 		//	renderer.material.color = Color.white;
 			Color color;
-			color = renderer.material.color;
+			color = GetComponent<Renderer>().material.color;
 			color.a = 1f;
-			renderer.material.color = color;
+			GetComponent<Renderer>().material.color = color;
 		}
 	}
 

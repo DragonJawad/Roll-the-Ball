@@ -27,7 +27,7 @@ public class Control_Button : MonoBehaviour {
 	public void Activate(){
 		if(activationCheck){	// If not already activated..
 			ControlCenter.GetComponent<Control_MusicManager>().ButtonSound();
-			this.animation.Play ();
+			this.GetComponent<Animation>().Play ();
 
 			if (typeOfInteraction == InteractionTypes.NA) {
 				print ("ERROR! Fix this button, ya fool!");
@@ -38,8 +38,8 @@ public class Control_Button : MonoBehaviour {
 			}
 
 			if (typeOfInteraction == InteractionTypes.ActivatePlatform){
-				Interaction.collider.enabled = true;
-				Interaction.renderer.material.color = Color.white;
+				Interaction.GetComponent<Collider>().enabled = true;
+				Interaction.GetComponent<Renderer>().material.color = Color.white;
 			}
 
 			activationCheck = false;	// Can't double press

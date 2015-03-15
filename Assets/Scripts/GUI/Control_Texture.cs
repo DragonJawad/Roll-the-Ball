@@ -186,7 +186,7 @@ public class Control_Texture : MonoBehaviour {
 		// If we're showing this GUI (which is defaultly true)
 		if(showGUI){
 			// Make sure the guiTexture is enabled
-			guiTexture.enabled = true;
+			GetComponent<GUITexture>().enabled = true;
 
 			// if this Texture is a JoystickBG
 			if(thisTexture == TextureType.JoystickBG)
@@ -207,7 +207,7 @@ public class Control_Texture : MonoBehaviour {
 
 					Touch touch = Input.GetTouch(i);
 					if(touch.phase == TouchPhase.Began &&
-					   	guiTexture.HitTest(touch.position)){
+					   	GetComponent<GUITexture>().HitTest(touch.position)){
 
 						if (thisTexture == TextureType.Pause){
 							ControlCenter.GetComponent<Control_MusicManager>().ClickSound();

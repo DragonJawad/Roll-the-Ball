@@ -33,7 +33,7 @@ public class Control_Boost : MonoBehaviour {
 		// If not boosting from the center of the booster...
 		if(!centerBoost){
 			Vector3 boostPower = -transform.right * boostMultiplier * boost;
-			player.rigidbody.velocity = boostPower;
+			player.GetComponent<Rigidbody>().velocity = boostPower;
 		}
 		else{
 			// Move the ball to the center of the booster
@@ -41,7 +41,7 @@ public class Control_Boost : MonoBehaviour {
 			// Calculate the boost itself
 			Vector3 boostPower = -transform.right * boostMultiplier * boost;
 			// Apply boost
-			player.rigidbody.velocity = boostPower;
+			player.GetComponent<Rigidbody>().velocity = boostPower;
 		}
 	}
 }

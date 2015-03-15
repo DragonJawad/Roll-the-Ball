@@ -42,7 +42,7 @@ public class ControlChange : MonoBehaviour {
 			for(int i = 0; i < Input.touchCount; i++){
 				Touch touch = Input.GetTouch(i);
 				if(touch.phase == TouchPhase.Began &&
-				   guiTexture.HitTest(touch.position)){
+				   GetComponent<GUITexture>().HitTest(touch.position)){
 					AlternateMode();
 				} // end if hit the texture
 		} // end for however many touches

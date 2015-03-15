@@ -26,47 +26,47 @@ public class Control_MusicManager : MonoBehaviour {
 			MPlayer = MusicPlayer.instance.gameObject;
 
 		if(newMusic != null){
-			if(MPlayer.audio.clip != newMusic){
-				MPlayer.audio.clip = newMusic;
-				MPlayer.audio.Play ();
+			if(MPlayer.GetComponent<AudioSource>().clip != newMusic){
+				MPlayer.GetComponent<AudioSource>().clip = newMusic;
+				MPlayer.GetComponent<AudioSource>().Play ();
 			}
 		}
 	}
 
 	public void BoosterSound(){
-		MPlayer.audio.PlayOneShot(boosterSound,1.5f);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(boosterSound,1.5f);
 	}
 
 	public void JBoosterSound(){
-		MPlayer.audio.PlayOneShot(jBoosterSound, 1.5f);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(jBoosterSound, 1.5f);
 	}
 
 	public void ButtonSound(){
-		MPlayer.audio.PlayOneShot(buttonSound);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(buttonSound);
 	}
 
 	public void ClickSound(){
-		MPlayer.audio.PlayOneShot(clickSound,1.5f);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(clickSound,1.5f);
 	}
 
 	public void DeathBell(){
-		MPlayer.audio.PlayOneShot(deathSound);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(deathSound);
 	}
 
 	public void MenuClick(){
-		MPlayer.audio.PlayOneShot(menuSound);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(menuSound);
 	}
 
 	public void PickupSound(){
-		MPlayer.audio.PlayOneShot(pickupSound);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(pickupSound);
 	}
 
 	public void SecretSound(){
-		MPlayer.audio.PlayOneShot(secretSound,2);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(secretSound,2);
 	}
 
 
 	public void WinSound(){
-		MPlayer.audio.PlayOneShot(winSound);
+		MPlayer.GetComponent<AudioSource>().PlayOneShot(winSound);
 	}
 }

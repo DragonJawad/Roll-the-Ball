@@ -254,6 +254,6 @@ function Update()
 
 	function FixedUpdate(){
 		var moveInput : Vector3 = new Vector3(position.x, 0, position.y);
-		player.rigidbody.AddForce(moveInput*450*Time.deltaTime);
+		player.GetComponent.<Rigidbody>().AddForce(moveInput*450*Time.deltaTime);
 //		print(moveInput);
 	}

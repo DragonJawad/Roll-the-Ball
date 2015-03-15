@@ -27,6 +27,6 @@ public class Control_Accel : MonoBehaviour {
 		
 		float boostPower = boostMultiplier * boost;
 	//	print (boostPower);
-		player.rigidbody.velocity = boostPower * player.rigidbody.velocity;
+		player.GetComponent<Rigidbody>().velocity = boostPower * player.GetComponent<Rigidbody>().velocity;
 	}
 }

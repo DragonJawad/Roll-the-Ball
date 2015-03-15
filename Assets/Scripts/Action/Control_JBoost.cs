@@ -30,12 +30,12 @@ public class Control_JBoost : MonoBehaviour {
 
 		if(!centerBoost){
 			Vector3 boostPower = boostDirection * boostMultiplier * boost;
-			player.rigidbody.velocity = boostPower;
+			player.GetComponent<Rigidbody>().velocity = boostPower;
 		}
 		else{
 			player.transform.position = this.transform.position;
 			Vector3 boostPower = boostDirection * boostMultiplier * boost;
-			player.rigidbody.velocity = boostPower;
+			player.GetComponent<Rigidbody>().velocity = boostPower;
 		}
 	}
 }
